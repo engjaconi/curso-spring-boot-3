@@ -1,6 +1,6 @@
 package br.com.engjaconi.curso_springboot_3.controller;
 
-import br.com.engjaconi.curso_springboot_3.model.Person;
+import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
 import br.com.engjaconi.curso_springboot_3.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,22 +20,22 @@ public class PersonController {
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Person> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<PersonDTO> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.ok().body(personService.findById(id));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Person>> findAll() {
+    public ResponseEntity<List<PersonDTO>> findAll() {
         return ResponseEntity.ok().body(personService.findAll());
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Person> create(@RequestBody Person person) {
+    public ResponseEntity<PersonDTO> create(@RequestBody PersonDTO person) {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.create(person));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Person> update(@RequestBody Person person) {
+    public ResponseEntity<PersonDTO> update(@RequestBody PersonDTO person) {
         return ResponseEntity.ok().body(personService.update(person));
     }
 

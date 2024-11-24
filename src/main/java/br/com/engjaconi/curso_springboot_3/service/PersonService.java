@@ -1,6 +1,8 @@
 package br.com.engjaconi.curso_springboot_3.service;
 
+import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
 import br.com.engjaconi.curso_springboot_3.exception.ResourceNotFoundException;
+import br.com.engjaconi.curso_springboot_3.mapper.Mapper;
 import br.com.engjaconi.curso_springboot_3.model.Person;
 import br.com.engjaconi.curso_springboot_3.repository.PersonRepository;
 import org.springframework.stereotype.Service;
@@ -19,22 +21,22 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    public Person findById(Long id){
+    public PersonDTO findById(Long id){
         logger.log(Level.INFO, "Buscando a pessoa {0}", id);
-        return findPersonById(id);
+        return Mapper.parseObject(findPersonById(id), PersonDTO.class);
     }
 
-    public List<Person> findAll() {
+    public List<PersonDTO> findAll() {
         logger.info("Buscando todas as pessoas");
-        return personRepository.findAll();
+        return Mapper.parseListObjects(personRepository.findAll(), PersonDTO.class);
     }
 
-    public Person create(Person person){
+    public PersonDTO create(PersonDTO person){
         logger.info("Adicionando uma pessoa");
-        return personRepository.save(person);
+        return Mapper.parseObject(personRepository.save(Mapper.parseObject(person, Person.class)), PersonDTO.class);
     }
 
-    public Person update(Person person){
+    public PersonDTO update(PersonDTO person){
         logger.info("Atualizando a pessoa");
         Person entity = findPersonById(person.getId());
 
@@ -43,7 +45,7 @@ public class PersonService {
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
 
-        return personRepository.save(entity);
+        return Mapper.parseObject(personRepository.save(entity), PersonDTO.class);
     }
 
     public void delete(Long id){
