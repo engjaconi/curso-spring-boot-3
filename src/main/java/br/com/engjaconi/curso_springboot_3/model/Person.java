@@ -1,18 +1,29 @@
 package br.com.engjaconi.curso_springboot_3.model;
 
+import jakarta.persistence.*;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "TB_PERSON")
 public class Person implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
+    @Column(name = "FIRST_NAME", nullable = false, length = 80)
     private String firstName;
+    @Column(name = "LAST_NAME", nullable = false, length = 80)
     private String lastName;
+    @Column(name = "ADDRESS", nullable = false, length = 100)
     private String address;
+    @Column(name = "GENDER", nullable = false, length = 6)
     private String gender;
 
     public Person() { }
