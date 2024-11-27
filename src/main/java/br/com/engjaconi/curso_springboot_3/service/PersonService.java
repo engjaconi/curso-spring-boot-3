@@ -1,8 +1,10 @@
 package br.com.engjaconi.curso_springboot_3.service;
 
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
+import br.com.engjaconi.curso_springboot_3.data.dto.v2.PersonV2DTO;
 import br.com.engjaconi.curso_springboot_3.exception.ResourceNotFoundException;
 import br.com.engjaconi.curso_springboot_3.mapper.Mapper;
+import br.com.engjaconi.curso_springboot_3.mapper.custom.PersonMapper;
 import br.com.engjaconi.curso_springboot_3.model.Person;
 import br.com.engjaconi.curso_springboot_3.repository.PersonRepository;
 import org.springframework.stereotype.Service;
@@ -15,10 +17,12 @@ import java.util.logging.Logger;
 public class PersonService {
 
     private final PersonRepository personRepository;
+    private final PersonMapper personMapper;
     private Logger logger = Logger.getLogger(PersonService.class.getName());
 
-    public PersonService(PersonRepository personRepository) {
+    public PersonService(PersonRepository personRepository, PersonMapper personMapper) {
         this.personRepository = personRepository;
+        this.personMapper = personMapper;
     }
 
     public PersonDTO findById(Long id){
@@ -34,6 +38,11 @@ public class PersonService {
     public PersonDTO create(PersonDTO person){
         logger.info("Adicionando uma pessoa");
         return Mapper.parseObject(personRepository.save(Mapper.parseObject(person, Person.class)), PersonDTO.class);
+    }
+
+    public PersonV2DTO create(PersonV2DTO person){
+        logger.info("Adicionando uma pessoa v2");
+        return personMapper.convertEntityToDTO(personRepository.save(personMapper.convertDTOToEntity(person)));
     }
 
     public PersonDTO update(PersonDTO person){

@@ -1,6 +1,7 @@
 package br.com.engjaconi.curso_springboot_3.controller;
 
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
+import br.com.engjaconi.curso_springboot_3.data.dto.v2.PersonV2DTO;
 import br.com.engjaconi.curso_springboot_3.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,6 +32,11 @@ public class PersonController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonDTO> create(@RequestBody PersonDTO person) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(personService.create(person));
+    }
+
+    @PostMapping(value = "/v2",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PersonV2DTO> create(@RequestBody PersonV2DTO person) {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.create(person));
     }
 
