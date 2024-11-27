@@ -1,4 +1,4 @@
 # curso-spring-boot-3
 Curso de Spring Boot 3 da Udemy.
 ## Resumo:
- * Adicionado o padrão VO ou DTO.
+ * Adicionado versionamento da rota post de criação de pessoa
