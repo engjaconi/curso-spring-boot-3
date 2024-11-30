@@ -1,7 +1,7 @@
 # curso-spring-boot-3
 Curso de Spring Boot 3 da Udemy.
 ## Resumo:
- * Adicionado o flyway para gerenciar as alterações no banco de dados.
+ * Negociação de conteudo de resposta por Query Param.
 
 Para rodar via terminal o flyway, pulando os testes para ser mais rápido o comando. Não é recomendado pular os testes.
 > mvn clean package spring-boot:run -DskipTests
