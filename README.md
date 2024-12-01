@@ -1,7 +1,7 @@
 # curso-spring-boot-3
 Curso de Spring Boot 3 da Udemy.
 ## Resumo:
- * Negociação de conteudo da resposta por Header Parm, para xml, yaml e json.
+ * Adicionado o HATEOAS na api, para retorno de links de acesso aos recursos.
 
 Para rodar via terminal o flyway, pulando os testes para ser mais rápido o comando. Não é recomendado pular os testes.
 > mvn clean package spring-boot:run -DskipTests

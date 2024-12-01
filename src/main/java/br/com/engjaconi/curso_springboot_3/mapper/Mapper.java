@@ -1,5 +1,7 @@
 package br.com.engjaconi.curso_springboot_3.mapper;
 
+import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
+import br.com.engjaconi.curso_springboot_3.model.Person;
 import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
@@ -9,6 +11,19 @@ public class Mapper {
     private static final ModelMapper modelMapper = new ModelMapper();
 
     private Mapper() { }
+
+    static {
+        // necessário para mapear pois atributos tem nomes diferentes, devido o uso do hateoas.
+        modelMapper.createTypeMap(
+                Person.class,
+                PersonDTO.class
+        ).addMapping(Person::getId, PersonDTO::setKey);
+
+        modelMapper.createTypeMap(
+                PersonDTO.class,
+                Person.class
+        ).addMapping(PersonDTO::getKey, Person::setId);
+    }
 
     public static <O, D> D parseObject(O origin, Class<D> destination) {
         return modelMapper.map(origin, destination);
