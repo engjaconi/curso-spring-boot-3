@@ -2,6 +2,7 @@ package br.com.engjaconi.curso_springboot_3.service;
 
 import br.com.engjaconi.curso_springboot_3.controller.PersonController;
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
+import br.com.engjaconi.curso_springboot_3.exception.RequiredObjectIsNullException;
 import br.com.engjaconi.curso_springboot_3.exception.ResourceNotFoundException;
 import br.com.engjaconi.curso_springboot_3.mapper.Mapper;
 import br.com.engjaconi.curso_springboot_3.model.Person;
@@ -44,6 +45,10 @@ public class PersonService {
     }
 
     public PersonDTO create(PersonDTO person){
+        if(person == null) {
+            throw new RequiredObjectIsNullException();
+        }
+
         logger.info("Adicionando uma pessoa");
         PersonDTO personDTO =  Mapper.parseObject(personRepository.save(Mapper.parseObject(person, Person.class)), PersonDTO.class);
         personDTO.add(linkTo(methodOn(PersonController.class).findById(personDTO.getKey())).withSelfRel());
@@ -52,6 +57,10 @@ public class PersonService {
     }
 
     public PersonDTO update(PersonDTO person){
+        if(person == null) {
+            throw new RequiredObjectIsNullException();
+        }
+
         logger.info("Atualizando a pessoa");
         Person entity = findPersonById(person.getKey());
 

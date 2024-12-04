@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import br.com.engjaconi.curso_springboot_3.mapper.mock.PersonMock;
+import br.com.engjaconi.curso_springboot_3.mock.PersonMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
