@@ -1,6 +1,8 @@
 package br.com.engjaconi.curso_springboot_3.mapper;
 
+import br.com.engjaconi.curso_springboot_3.data.dto.v1.BookDTO;
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
+import br.com.engjaconi.curso_springboot_3.model.Book;
 import br.com.engjaconi.curso_springboot_3.model.Person;
 import org.modelmapper.ModelMapper;
 
@@ -23,6 +25,16 @@ public class Mapper {
                 PersonDTO.class,
                 Person.class
         ).addMapping(PersonDTO::getKey, Person::setId);
+
+        modelMapper.createTypeMap(
+                Book.class,
+                BookDTO.class
+        ).addMapping(Book::getId, BookDTO::setKey);
+
+        modelMapper.createTypeMap(
+                BookDTO.class,
+                Book.class
+        ).addMapping(BookDTO::getKey, Book::setId);
     }
 
     public static <O, D> D parseObject(O origin, Class<D> destination) {

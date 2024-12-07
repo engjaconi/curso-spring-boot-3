@@ -1,14 +1,17 @@
 package br.com.engjaconi.curso_springboot_3;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.*;
+
+@ExtendWith(MockitoExtension.class)
 class SpringBoot3ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		assert(true);
+		assertTrue(true);
 	}
 
 }
