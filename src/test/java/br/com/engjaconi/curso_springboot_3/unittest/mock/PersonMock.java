@@ -1,4 +1,4 @@
-package br.com.engjaconi.curso_springboot_3.mock;
+package br.com.engjaconi.curso_springboot_3.unittest.mock;
 
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
 import br.com.engjaconi.curso_springboot_3.model.Person;

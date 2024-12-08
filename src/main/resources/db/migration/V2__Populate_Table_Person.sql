@@ -1,4 +1,4 @@
-INSERT INTO `curso-spring-boot-3`.`tb_person`
+INSERT INTO `tb_person`
 (`id`, `first_name`, `last_name`, `address`, `gender`)
 VALUES
 (1, 'Tiago', 'Jaconi', 'Brasil', 'M'),

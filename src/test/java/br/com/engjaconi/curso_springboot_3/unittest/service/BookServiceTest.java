@@ -1,8 +1,9 @@
-package br.com.engjaconi.curso_springboot_3.service;
+package br.com.engjaconi.curso_springboot_3.unittest.service;
 
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.BookDTO;
 import br.com.engjaconi.curso_springboot_3.exception.RequiredObjectIsNullException;
-import br.com.engjaconi.curso_springboot_3.mock.BookMock;
+import br.com.engjaconi.curso_springboot_3.service.BookService;
+import br.com.engjaconi.curso_springboot_3.unittest.mock.BookMock;
 import br.com.engjaconi.curso_springboot_3.model.Book;
 import br.com.engjaconi.curso_springboot_3.repository.BookRepository;
 import org.junit.jupiter.api.BeforeEach;

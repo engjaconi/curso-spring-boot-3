@@ -1,8 +1,9 @@
-package br.com.engjaconi.curso_springboot_3.service;
+package br.com.engjaconi.curso_springboot_3.unittest.service;
 
 import br.com.engjaconi.curso_springboot_3.data.dto.v1.PersonDTO;
 import br.com.engjaconi.curso_springboot_3.exception.RequiredObjectIsNullException;
-import br.com.engjaconi.curso_springboot_3.mock.PersonMock;
+import br.com.engjaconi.curso_springboot_3.service.PersonService;
+import br.com.engjaconi.curso_springboot_3.unittest.mock.PersonMock;
 import br.com.engjaconi.curso_springboot_3.model.Person;
 import br.com.engjaconi.curso_springboot_3.repository.PersonRepository;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,10 +1,11 @@
-package br.com.engjaconi.curso_springboot_3.mapper;
+package br.com.engjaconi.curso_springboot_3.unittest.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-import br.com.engjaconi.curso_springboot_3.mock.PersonMock;
+import br.com.engjaconi.curso_springboot_3.mapper.Mapper;
+import br.com.engjaconi.curso_springboot_3.unittest.mock.PersonMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
