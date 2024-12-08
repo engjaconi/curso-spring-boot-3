@@ -26,6 +26,7 @@ public class PersonController {
         this.personService = personService;
     }
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @Operation(summary = "Finds a Person", description = "Finds a Person",
             tags = {"People"},
             responses = {
@@ -65,6 +66,7 @@ public class PersonController {
         return ResponseEntity.ok().body(personService.findAll());
     }
 
+    @CrossOrigin(origins = {"http://localhost:8080", "https://engjaconi.com.br"})
     @Operation(summary = "Adds a new Person",
             description = "Adds a new Person by passing in a JSON, XML or YML representation of the person!",
             tags = {"People"},

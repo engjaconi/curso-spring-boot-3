@@ -1,3 +1,5 @@
+cors:
+  originPatterns: http://localhost:8080,http://localhost:3000,https://engjaconi.com.br
 spring:
   application:
     name: curso-springboot-3
